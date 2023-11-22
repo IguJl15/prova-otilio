@@ -1,0 +1,67 @@
+@model Prova.ViewModels.CreateProdutoViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+
+<body>
+
+    <h4>Produto</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="produto.Descricao" class="control-label"></label>
+                    <input asp-for="produto.Descricao" class="form-control" />
+                    <span asp-validation-for="produto.Descricao" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="produto.imageUrl" class="control-label"></label>
+                    <input asp-for="produto.imageUrl" class="form-control" />
+                    <span asp-validation-for="produto.imageUrl" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="produto.Preco" class="control-label"></label>
+                    <input asp-for="produto.Preco" class="form-control" />
+                    <span asp-validation-for="produto.Preco" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="produto.quantity" class="control-label"></label>
+                    <input asp-for="produto.quantity" class="form-control" />
+                    <span asp-validation-for="produto.quantity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="produto.Categoria" class="control-label"></label>
+                    <select asp-for="produto.Categoria" class="form-control">
+                        @foreach (var cat in Model.categorias)
+                        {
+                            <option value="@cat">@cat.Nome</option>
+                        }
+                    </select>
+                    <span asp-validation-for="produto.Categoria" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+</body>
+
+</html>
